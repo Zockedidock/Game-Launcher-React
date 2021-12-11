@@ -1,47 +1,50 @@
 import { MemoryRouter as Router, Switch, Route } from 'react-router-dom';
-import icon from '../../assets/icon.svg';
-import './App.css';
+import {
+  MDBBtn,
+  MDBIcon,
+  MDBNavbar,
+  MDBContainer,
+  MDBNavbarBrand,
+} from 'mdb-react-ui-kit';
+import { TitlebarProps } from '../main/types/index';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import './index.scss';
 
 const Hello = () => {
   return (
-    <div>
-      <div className="Hello">
-        <img width="200px" alt="icon" src={icon} />
-      </div>
-      <h1>electron-react-boilerplate</h1>
-      <div className="Hello">
-        <a
-          href="https://electron-react-boilerplate.js.org/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button type="button">
-            <span role="img" aria-label="books">
-              📚
-            </span>
-            Read our docs
-          </button>
-        </a>
-        <a
-          href="https://github.com/sponsors/electron-react-boilerplate"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button type="button">
-            <span role="img" aria-label="books">
-              🙏
-            </span>
-            Donate
-          </button>
-        </a>
-      </div>
+    <div className="app">
+      <MDBBtn floating tag="a" className="add m-2" size="lg" color="danger">
+        <MDBIcon fas icon="plus" />
+      </MDBBtn>
     </div>
+  );
+};
+
+const Titlebar = (props: TitlebarProps) => {
+  const { name } = props;
+  return (
+    <>
+      <MDBNavbar sticky light bgColor="light" className="titlebar">
+        <MDBContainer fluid>
+          <MDBNavbarBrand href="#">
+            <img
+              src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.png"
+              height="30"
+              alt=""
+              loading="lazy"
+            />
+            {name}
+          </MDBNavbarBrand>
+        </MDBContainer>
+      </MDBNavbar>
+    </>
   );
 };
 
 export default function App() {
   return (
     <Router>
+      <Titlebar name="Hello" />
       <Switch>
         <Route path="/" component={Hello} />
       </Switch>

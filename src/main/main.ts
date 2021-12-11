@@ -1,4 +1,4 @@
-/* eslint global-require: off, no-console: off, promise/always-return: off */
+/* eslint global-require: off, no-console: off, promise/always-return: off, prettier/prettier: off */
 
 /**
  * This module executes inside of electron's main process. You can start
@@ -76,7 +76,10 @@ const createWindow = async () => {
     width: 1024,
     height: 728,
     icon: getAssetPath('icon.png'),
+    titleBarStyle: 'hidden',
+    titleBarOverlay: true,
     webPreferences: {
+      nodeIntegration: true,
       preload: path.join(__dirname, 'preload.js'),
     },
   });
