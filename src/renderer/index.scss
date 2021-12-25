@@ -5,12 +5,35 @@
 
 .titlebar {
   -webkit-app-region: drag;
-  height: 30px !important;
-  font-size: 1.1rem !important;
+  height: 30px;
+  padding-left: var(--mdb-gutter-x, 0.5rem);
+  padding-top: var(--mdb-gutter-y, 0.35rem);
+  display: flex;
+  background-color: #f0f0f0;
+  position: absolute;
+  z-index: 1056;
 }
 
 .add {
   position: absolute;
   right: 0;
   bottom: 0;
+}
+
+#root {
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-brand {
+  padding-top: 0 !important;
+}
+
+.auto {
+  width: auto !important;
+  padding-right: 56.63px !important;
+}
+
+.app {
+  padding: 40px 0 10px 10px;
 }
